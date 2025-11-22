@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Imóveis</title>
+    <link rel="stylesheet" href="./cadastro/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Cadastrar Novo Imóvel</h1>
+
+            <form id="formCadastro">
+
+                <fieldset class="form-group">
+                    <legend>Detalhes Principais</legend>
+                    
+                    <label for="titulo">Título do Imóvel:</label>
+                    <input type="text" id="titulo" required placeholder="Ex: Apartamento de Alto Padrão no Papicu">
+
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" required>
+                        <option value="" disabled selected>Selecione o Tipo...</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="casa">Casa</option>
+                        <option value="kitnet">Kitnet</option>
+                        <option value="sobrado">Sobrado</option>
+                        <option value="terreno">Terreno</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-group grid-2">
+                    <legend>Especificações</legend>
+                    
+                    <label for="area">Área (m²):</label>
+                    <input type="number" id="area" required min="1" placeholder="Ex: 85">
+
+                    <label for="quartos">Quartos:</label>
+                    <input type="number" id="quartos" required min="1" placeholder="Ex: 3">
+                    
+                    <label for="valor">Valor (R$):</label>
+                    <input type="number" id="valor" required min="1" placeholder="Ex: 350000">
+
+                    <label for="localizacao">Localização:</label>
+                    <input type="text" id="localizacao" required placeholder="Bairro, Cidade / CEP">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <legend>Descrição e Mídia</legend>
+
+                    <label for="descricao">Descrição Detalhada:</label>
+                    <textarea id="descricao" required rows="5" placeholder="Destaque os diferenciais, acabamentos e comodidades do imóvel."></textarea>
+
+                    <label for="fotos">Fotos (URL - Separar por vírgula):</label>
+                    <input type="text" id="fotos" required placeholder="Cole links das fotos. Ex: https://link1.jpg, https://link2.jpg">
+                    
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="destaque">
+                        **Destacar este imóvel** (Prioridade na listagem)
+                    </label>
+                </fieldset>
+
+
+                <button type="submit" class="submit-button">
+                    <i class="icon-save"></i> Cadastrar Imóvel
+                </button>
+                
+                <p id="msg" class="message-status"></p>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="./cadastro/cadastro.js"></script>
+</body>
+</html>

@@ -27,6 +27,7 @@ function buscarDadosAPI() {
         .then((dados) => {
             // console.log(dados);
             criarCardImovel(dados);
+            criarCardsDestaques(dados);
         })
         .catch((erro) => {
             // Captura qualquer erro (404, problemas de rede, etc.)
@@ -100,3 +101,51 @@ function criarCardImovel(listaImoveis) {
         divDados.appendChild(valor);
     });
 }
+function criarCardsDestaques(listaImoveis) {
+
+    const container = document.querySelector("#destaques-container");
+
+    // Filtra só imóveis com destaque == true e pega 4
+    const destaques = listaImoveis
+        .filter(item => item.destaque == true)
+        .slice(0, 4);
+
+    destaques.forEach((imovel) => {
+
+        // Cria o card
+        const card = document.createElement("article");
+        card.classList.add("card-destaque");
+        container.appendChild(card);
+
+        // FOTO
+        const divFoto = document.createElement("div");
+        divFoto.classList.add("foto-destaque");
+        card.appendChild(divFoto);
+
+        const img = document.createElement("img");
+        img.src = imovel.fotos?.[0] || "./img/default.jpg";
+        divFoto.appendChild(img);
+
+        // CONTEÚDO
+        const conteudo = document.createElement("div");
+        conteudo.classList.add("conteudo-destaque");
+        card.appendChild(conteudo);
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = imovel.titulo;
+        conteudo.appendChild(titulo);
+
+        const desc = document.createElement("p");
+        desc.textContent = imovel.descricao;
+        conteudo.appendChild(desc);
+
+        const preco = document.createElement("div");
+        preco.classList.add("preco-destaque");
+        preco.textContent = imovel.valor.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL"
+        });
+        conteudo.appendChild(preco);
+    });
+}
+

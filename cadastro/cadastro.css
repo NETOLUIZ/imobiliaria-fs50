@@ -1,0 +1,207 @@
+/* Importar Fonte (Se não foi feito no HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* --- Reset e Base --- */
+:root {
+    --primary-color: #007bff; /* Azul vibrante para ações */
+    --secondary-color: #6c757d; /* Cinza para textos secundários */
+    --background-color: #f8f9fa; /* Fundo claro */
+    --card-background: #ffffff; /* Fundo do container/card */
+    --border-color: #e9ecef; /* Cor da borda suave */
+    --shadow-color: rgba(0, 0, 0, 0.08); /* Sombra suave */
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    /* NOVO: Fundo degradê vibrante */
+    background: linear-gradient(135deg, #FF6B6B, #FFD166, #06D6A0, #118AB2, #073B4C);
+    background-size: 400% 400%; /* Para animação de degradê */
+    animation: gradientAnimation 15s ease infinite; /* Animação suave */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* --- Container Principal --- */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- Estrutura do Formulário e Agrupamento --- */
+#formCadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+legend {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0 10px;
+    margin-left: -10px; /* Alinha a legend ao conteúdo do fieldset */
+}
+
+/* Layout de Grade para Especificações */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    align-items: center;
+}
+
+/* Para garantir que labels e inputs se mantenham alinhados no grid */
+.grid-2 label {
+    display: block;
+    margin-bottom: -10px; /* Ajusta o espaçamento entre label e input no grid */
+    margin-top: 10px;
+}
+.grid-2 label:first-of-type {
+    margin-top: 0;
+}
+/* No grid, garantir que os inputs ocupem a linha de baixo */
+.grid-2 input, .grid-2 select {
+    grid-column: span 1;
+}
+
+
+/* --- Estilo dos Elementos de Formulário --- */
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #495057;
+    font-weight: 400;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Checkbox (Destaque) */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/* Botão de Envio */
+.submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    background-color: #004085;
+    transform: translateY(0);
+}
+
+/* Mensagem de Status */
+.message-status {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: 600;
+    /* Você deve adicionar classes específicas no JS para sucesso/erro */
+    /* Ex: .message-status.success { background-color: #d4edda; color: #155724; } */
+}
+
+/* --- Responsividade (Para telas menores) --- */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .grid-2 {
+        grid-template-columns: 1fr; /* Colunas empilhadas em telas pequenas */
+        gap: 0;
+    }
+    
+    .grid-2 label {
+        margin-top: 15px;
+    }
+    .grid-2 label:first-of-type {
+        margin-top: 0;
+    }
+}

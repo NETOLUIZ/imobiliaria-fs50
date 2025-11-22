@@ -14,6 +14,7 @@
     --sombra:   0   0.2rem   0.5rem      0.1rem      var(--cor-03);
 }
 
+
 /* Reset */
 * {
     margin: 0;
@@ -28,8 +29,10 @@ html {
 }
 
 body {
-    background-color: var(--cor-02);
-    color: var(--cor-05);
+  /* NOVO: Fundo degradê vibrante */
+    background: linear-gradient(135deg, #FF6B6B, #FFD166, #06D6A0, #118AB2, #073B4C);
+    background-size: 400% 400%; /* Para animação de degradê */
+    animation: gradientAnimation 15s ease infinite; /* Animação suave */
 }
 
 /* ===== Barra de Navegação ===== */
@@ -77,13 +80,26 @@ header {
     margin-top: 3.5rem;
     background-color: var(--cor-03);
 }
+.banner {
+    width: 100%;
+    height: 300px; /* Ajuste a altura do banner */
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    display: block;
+}
+
 
 /* ===== Sections ===== */
 section {
     min-height: 80vh;
     padding: 5rem 2rem;
 
-    border: solid 2px red; /* TESTE */
+   /* border: solid 2px red; /* TESTE */
 }
 
 /* ===== Estrutura dos Cards dos Imóveis ===== */
@@ -173,12 +189,42 @@ footer {
     }
 }
 
-/* Animação em CSS */
-@keyframes loading {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* ===== Destaques ===== */
+#destaques {
+    padding: 40px 20px;
+}
+
+#destaques-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card-destaque {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.card-destaque:hover {
+    transform: scale(1.03);
+}
+
+.foto-destaque img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.conteudo-destaque {
+    padding: 15px;
+}
+
+.preco-destaque {
+    font-size: 18px;
+    color: #d00000;
+    font-weight: bold;
+    margin-top: 8px;
 }
