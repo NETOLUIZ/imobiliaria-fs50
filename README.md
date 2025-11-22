@@ -1,5 +1,7 @@
 # Site de imobiliária com Consumo de API, Fetch, JSON, Promise, Create Element com HTML, CSS e JavaScript.
 
+[Acesse o site](https://prof-marneicardoso.github.io/imobiliaria-fs50/)
+
 ### Link da MockAPI utilizado no projeto:
 https://690f565745e65ab24ac355d4.mockapi.io/api/imoveis
 
